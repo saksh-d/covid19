@@ -1,0 +1,39 @@
+<!-- APIs:
+
+https://covid19-server.chrismichael.now.sh/api/v1/JohnsHopkinsDataDailyReport
+https://bing.com/covid/data
+https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest#81415d42-eb53-4a85-8484-42d2349debfe
+https://covid2019-api.herokuapp.com/docs#/v1/current_status_list_current_list_get
+https://api.covid19api.com/all -->
+<div class="row">
+            <span class="border border-dark"><div class="col-3">
+                <div class="card ml-4 mb-4 mt-4 mr-0" style="width: 15rem;">
+                    <div class="card p-4 bg-warning">
+                        <h4 class="card-title" align="center">Total Cases</h4>
+                        <h1 class="card-text" align="center">{{ world.data.confirmed }}</h1>
+                    </div>
+                </div>
+                <div class="card ml-4 mb-4 mt-4 mr-0" style="width: 15rem;">
+                    <div class="card p-4 bg-danger">
+                        <h4 class="card-title" align="center">Total Deaths</h4>
+                        <h1 class="card-text" align="center">{{ world.data.deaths }}</h1>
+                    </div>
+                </div>
+                <div class="card ml-4 mb-4 mt-4 mr-0" style="width: 15rem;">
+                    <div class="card p-4 bg-success">
+                        <h4 class="card-title" align="center">Total Recovered</h4>
+                        <h1 class="card-text" align="center">{{ world.data.recovered }}</h1>
+                    </div>
+                </div>
+                <div> <div class="ml-4 mb-4 mt-4 mr-0" style="width: 15rem;"><app-country-data-button></app-country-data-button></div></div>
+            </div></span>
+            <div class="col-9 p-4">
+                <app-world-chart></app-world-chart>
+            </div>
+</div>
+<div class="text-white"> Last updated on {{ world.dt | slice : 0:10 }} at
+    {{ world.dt | slice : 11:16 }} hours </div>
+
+ 
+
+

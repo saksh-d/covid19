@@ -1,0 +1,192 @@
+<div class="row">
+    <span class="border border-dark">
+        <div class="col-3">
+
+            <!-- <app-india-daily></app-india-daily> -->
+
+            <div class="card ml-4 mb-4 mt-4 mr-0" style="width: 15rem;">
+                <div class="card p-2 bg-warning">
+                    <h4 class="card-title" align="center">Total Cases</h4>
+                    <h1 class="card-text pb-0 mb-0" align="center">{{ info.data[info.data.length-1].summary.total }}
+                    </h1>
+                    <app-india-daily></app-india-daily>
+                    <!-- <button type="button" class="btn btn-warning font-white btn-outline-dark" data-toggle="modal"
+                        data-target="#TotalCasesModal">
+                        View State-wise Data
+                    </button> -->
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="TotalCasesModal" tabindex="-1" role="dialog"
+                        aria-labelledby="TotalCasesModel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Total cases</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <table border="1px solid black" align="center">
+                                        <span align="center">
+                                            <tr>
+                                                <th>State</th>
+                                                <th>Total cases</th>
+                                            </tr>
+
+                                            <tr *ngFor="let region of info.data[info.data.length-1].regional">
+                                                <td>{{ region.loc }}</td>
+                                                <td>{{ region.confirmedCasesIndian + region.confirmedCasesForeign }}
+                                                </td>
+                                            </tr>
+                                        </span>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card ml-4 mb-4 mt-4 mr-0" style="width: 15rem;">
+                <div class="card p-2 bg-danger">
+                    <h4 class="card-title" align="center">Total Deaths</h4>
+                    <h1 class="card-text pb-0 mb-0" align="center">{{ info.data[info.data.length-1].summary.deaths }}
+                    </h1>
+                    <h5 class="card-text font-weight-bold pb-1 pt-0" align="center">
+                        (+{{ info.data[info.data.length-1].summary.deaths - info.data[info.data.length-2].summary.deaths }})
+                    </h5>
+                    <!-- <button type="button" class="btn btn-danger font-white btn-outline-dark" data-toggle="modal"
+                        data-target="#TotalDeathsModal">
+                        View State-wise Data
+                    </button> -->
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="TotalDeathsModal" tabindex="-1" role="dialog"
+                        aria-labelledby="TotalDeathsModel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Total Deaths</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <table border="1px solid black" align="center">
+                                        <span align="center">
+                                            <tr>
+                                                <th>State</th>
+                                                <th>Total deaths</th>
+                                            </tr>
+
+                                            <tr *ngFor="let region of info.data[info.data.length-1].regional">
+                                                <td>{{ region.loc }}</td>
+                                                <td>{{ region.deaths }}</td>
+                                            </tr>
+                                        </span>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card ml-4 mb-4 mt-4 mr-0" style="width: 15rem;">
+                <div class="card p-2 bg-success">
+                    <h4 class="card-title" align="center">Total Recovered</h4>
+                    <h1 class="card-text pb-0 mb-0" align="center">
+                        {{ info.data[info.data.length-1].summary.discharged }}</h1>
+                    <h5 class="card-text font-weight-bold pb-1 pt-0" align="center">
+                        (+{{ info.data[info.data.length-1].summary.discharged - info.data[info.data.length-2].summary.discharged }})
+                    </h5>
+
+                    <!-- <table border=1 align="center">
+                                        <span align="center">
+                                            <tr>
+                                                <th>State</th>
+                                                <th>Recovered cases</th>
+                                            </tr>
+
+                                            <tr *ngFor="let region of info.data[info.data.length-1].regional">
+                                                <td>{{ region.loc }}</td>
+                                                <td>{{ region.discharged }}</td>
+                                            </tr>
+                                        </span>
+                                    </table> -->
+                </div>
+            </div>
+            
+        </div>
+        <div class="ml-4 mb-4 mt-4 mr-0" style="width: 15rem;"><button type="button" class="btn btn-light font-white btn-outline-dark ml-2 mb-4 mt-4 mr-0" data-toggle="modal"
+            data-target="#exampleModalLong">
+            View State-wise Data
+            </button>
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">State-wise Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card bg-light" style="width:100%">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th class="text-theme bg-light">State</th>
+                                    <th class="text-warning font-weight-bold">Confirmed</th>
+                                    <th class="text-success font-weight-bold">Recovered</th>
+                                    <th class="text-danger font-weight-bold">Deaths</th>
+                                </tr>
+                                <tr *ngFor="let region of info.data[info.data.length-1].regional">
+                                    <td class="text-info font-weight-bold">{{region.loc}}</td>
+                                    <td class="text-warning font-weight-bold">{{region.totalConfirmed}}</td>
+                                    <td class="text-success font-weight-bold">{{region.discharged}}</td>
+                                    <td class="text-danger font-weight-bold">{{region.deaths}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+    </span>
+    <div class="col-9 m-3 p-2">
+        <app-chart-component></app-chart-component>
+    </div>
+
+    <!-- <div class="row">
+
+    <div class="col-12 m-0 p-0">
+        <app-chart-component></app-chart-component>
+    </div>
+</div> -->
+
+
+    <!-- <div class="col-3">
+
+<div class="card mb-4 mt-4 mr-4" style="width: 15rem; height: 40rem;">
+    <div class="card p-1">
+        <table border="3">
+            <tr>
+                <td align="center">Country</td>
+                <td align="center">Cases</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div> -->
+</div>
+<div class="text-white"> Last updated on {{ info.lastRefreshed | slice : 0:10 }} at
+    {{ info.lastRefreshed | slice : 11:16 }} hours </div>
+<div>
+    <app-map-india></app-map-india>
+</div>
