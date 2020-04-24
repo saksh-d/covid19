@@ -18,6 +18,7 @@ export class CountryDataButtonComponent implements OnInit {
 
   innfo: CountryData[];
   
+  // https://stackoverflow.com/questions/45528424/search-bar-in-modal-body-for-auto-search-based-on-text-entered
 
   ngOnInit() {
     this.apiService.getWorldData()
