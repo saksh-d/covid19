@@ -116,52 +116,55 @@ export class ChartComponentComponent implements OnInit{
 
 
 latIndiaCovidData;
-  locations = [];
-  highcharts = Highcharts;
-  series = [];
-  chartOptions;
-  dischargedPatients = [];
-  deathPatients = [];
-  totalConfirmedPatients = [];
-  totalConfirmesIndians = [];
-  totalConfirmedForeigns = []
+locations = [];
+highcharts = Highcharts;
+series = [];
+chartOptions;
+dischargedPatients = [];
+deathPatients = [];
+totalConfirmedPatients = [];
+totalConfirmesIndians = [];
+totalConfirmedForeigns = []
 
 constructor(private apiService: IndiaApiService){}
 
 ngOnInit(){
-  this.plotGrpahForLatestIndiaData();
-    
+this.plotGrpahForLatestIndiaData();
+  
 }
 plotGrpahForLatestIndiaData() {
-  this.apiService.getLatestIndiaData().subscribe((res:any) =>{
-    this.latIndiaCovidData = res
-    this.showGraph(this.latIndiaCovidData);
-  });
+this.apiService.getLatestIndiaData().subscribe((res:any) =>{
+  this.latIndiaCovidData = res
+  this.showGraph(this.latIndiaCovidData);
+});
 }
 
 private showGraph(covidData){
-  let regionsData = covidData['data'].regional
-  for(let index in regionsData){
-    this.locations.push(regionsData[index]['loc']);
-    this.dischargedPatients.push(regionsData[index]['discharged']);
-    this.deathPatients.push(regionsData[index]['deaths']);
-    this.totalConfirmedPatients.push(regionsData[index]['totalConfirmed']);
-    this.totalConfirmesIndians.push(regionsData[index]['confirmedCasesIndian']);
-    this.totalConfirmedForeigns.push(regionsData[index]['confirmedCasesForeign']);
-  }
-  console.log(this.locations)
+let regionsData = covidData['data'].regional
+for(let index in regionsData){
+  this.locations.push(regionsData[index]['loc']);
+  this.dischargedPatients.push(regionsData[index]['discharged']);
+  this.deathPatients.push(regionsData[index]['deaths']);
+  this.totalConfirmedPatients.push(regionsData[index]['totalConfirmed']);
+  this.totalConfirmesIndians.push(regionsData[index]['confirmedCasesIndian']);
+  this.totalConfirmedForeigns.push(regionsData[index]['confirmedCasesForeign']);
+}
+console.log(this.locations)
 
-  this.chartOptions = {
-    chart: {
-      type: 'column',
-      height:"600px",
-      width: 1600,
-      spacingLeft:1,
-      spacingRight:1,
-      
-      zoomType: 'x',
-      panning: 'true',
-      panKey: 'shift',
+this.chartOptions = {
+  chart: {
+    type: 'column',
+    height:"500px",
+    width: 1600,
+    spacingLeft:1,
+    spacingRight:1,
+    zoomType: 'x',
+    panning: 'true',
+    panKey: 'shift',
+    scrollablePlotArea: {
+        minWidth: 5000,
+        scrollPositionX: 0
+      },
       resetZoomButton: {
         position: {
              align: 'left',
@@ -169,87 +172,63 @@ private showGraph(covidData){
             x: 0,
             y: -30
         }
-      }
-      // backgroundColor: '#515469',
-      
-
-    
-      // plotBackgroundImage:'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/news/2020/01_2020/coronavirus_1/1800x1200_coronavirus_1.jpg?resize=*:350px'
-  },
-  title: {
-      text: 'Cases in India (State-wise)',
-      style: {
-        fontFamily: 'monospace',
-        color: "#f00"
     }
-  },
-//   subtitle: {
-//       text: 'Source: api.rootnet.in'
-//   },
+    // plotBackgroundColor: '#0e3342',
+  
+    //plotBackgroundImage:'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/news/2020/01_2020/coronavirus_1/1800x1200_coronavirus_1.jpg?resize=*:350px'
+},
+title: {
+    text: 'India Current Covid status'
+},
 subtitle: {
-  text: 'Click and drag to zoom in. Hold down shift key to pan.'},
-  xAxis: {
-      categories: this.locations,
-      crosshair: true,
-      labels: {
-        style: {
-           color: '#F00',
-           font: '11px Trebuchet MS, Verdana, sans-serif'
-        }
-    },
-    min: 'Afghanistan',
-    max: 'Germany'
-  },
-  yAxis: {
-      
-      min: -70,
-        startOnTick: false,
-      title: {
-          text: 'Count'
-      },
-      labels: {
-        style: {
-           color: '#F00',
-           font: '11px Trebuchet MS, Verdana, sans-serif'
-        }
+    text: 'Click and drag to zoom in. Hold down shift key to pan.'
+},
+xAxis: {
+    categories: this.locations,
+    crosshair: true,
+    
+},
+yAxis: {
+    
+    min: -70,
+      startOnTick: false,
+    title: {
+        text: 'Count'
     }
-  },
-  tooltip: {
-      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-          '<td style="padding:0"><b>{point.y} </b></td></tr>',
-      footerFormat: '</table>',
-      shared: true,
-      useHTML: true
-  },
-  plotOptions: {
-      column: {
-          pointPadding: 0.2,
-          borderWidth: 0
-      }
-  },
-  series: [{
+},
+tooltip: {
+    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+        '<td style="padding:0"><b>{point.y} persons</b></td></tr>',
+    footerFormat: '</table>',
+    shared: true,
+    useHTML: true
+},
+plotOptions: {
+    column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+    }
+},
+series: [{
+    name: 'Discharged',
+    data: this.dischargedPatients,
+    color:'green'
+
+}, {
+    name: 'Deaths',
+    data: this.deathPatients,
+    color:'red'
+
+}, {
     name: 'Total Confirmed',
-    dataSorting: {
-      enabled: true
-  },
     data: this.totalConfirmedPatients,
     color:'blue'
-
-  }, {
-    name: 'Recovered',
-    data: this.dischargedPatients,
-    color:'green'},
-    {
-      
-        name: 'Deaths',
-        data: this.deathPatients,
-        color:'red'}, 
-  
-  
+}  
 
 ]
-  }
+};
 }
+
 }
 

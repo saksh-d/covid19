@@ -55,13 +55,13 @@ export class WorldChartComponent implements OnInit {
         zoomType: 'x',
         panning: 'true',
         panKey: 'shift',
-        width: 1600,
+        width: 1650,
         spacingLeft: 1,
         spacingRight: 1,
         // backgroundColor: '#515469',
         scrollablePlotArea: {
-          minWidth: 500,
-          scrollPositionX: 1
+          minWidth: 20000,
+          scrollPositionX: 0
         },
         resetZoomButton: {
           position: {
@@ -76,9 +76,9 @@ export class WorldChartComponent implements OnInit {
 
         // plotBackgroundImage:'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/news/2020/01_2020/coronavirus_1/1800x1200_coronavirus_1.jpg?resize=*:350px'
       },
-      function(chart){
-        chart.xAxis[0].setExtremes(0,0);
-    },
+    //   function(chart){
+    //     chart.xAxis[0].setExtremes(0,0);
+    // },
       title: {
         text: 'Cases in World (Country-wise)',
         style: {
