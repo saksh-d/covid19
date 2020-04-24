@@ -16,6 +16,7 @@ import { ChartModule } from 'angular-highcharts';
 import { HighchartsService } from './highcharts.service';
 import { MapIndiaComponent } from './map-india/map-india.component';
 import { ChartsModule } from 'ng2-charts';
+import { FormsModule } from '@angular/forms';
 
  import { HttpClientModule } from '@angular/common/http';
  import { IndiaApiService } from './_services/indiaApi.service';
@@ -26,6 +27,8 @@ import { WorldCountryApiService } from './_services/worldCountry.service';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import { WorldChartComponent } from './world-chart/world-chart.component';
 import { CountryDataButtonComponent } from './country-data-button/country-data-button.component';
+import { FilterPipe } from './pipe';
+import { MainPipe } from './filter-pipe.module';
 
 
 @NgModule({
@@ -41,14 +44,18 @@ import { CountryDataButtonComponent } from './country-data-button/country-data-b
     IndiaDailyComponent,
     HighchartsChartComponent,
     WorldChartComponent,
-    CountryDataButtonComponent
+    CountryDataButtonComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     ChartModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    MainPipe
   ],
   providers: [IndiaApiService, IndiaDailyApiService, WorldApiService, WorldCountryApiService],
   bootstrap: [AppComponent]

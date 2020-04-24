@@ -14,6 +14,17 @@
             </div>
             <div class="modal-body">
                 <div class="card bg-light" style="width:100%">
+                    <!-- <input type="text" class="form-control" [(ngModel)]="searchVal" 
+                    (ngModelChange)='checkSearchVal()'
+                    placeholder="Search by Country"> -->
+                    <!-- <form id="searchForm">
+                        <div class="form-group">
+                            <div class="input-group" id="filterAll">
+                              <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+                              <input type="text" class="form-control" name="searchString" placeholder="Search..." [(ngModel)]="searchString">
+                            </div>
+                        </div>
+                    </form> -->
                     <table class="table table-striped">
                         <tr>
                             <th class="text-theme bg-light">Country</th>
@@ -22,6 +33,9 @@
                             <th class="text-danger font-weight-bold">Deaths</th>
                         </tr>
                         <tr *ngFor="let region of innfo.data">
+                        <!-- | paginate: {itemsPerPage: pageSize,
+                            currentPage: page,
+                            totalItems: users.length} | filterAll: searchString"> -->
                             <td class="text-info font-weight-bold">{{region.name}}</td>
                             <td class="text-warning font-weight-bold">{{region.latest_data.confirmed}}</td>
                             <td class="text-success font-weight-bold">{{region.latest_data.recovered}}</td>
