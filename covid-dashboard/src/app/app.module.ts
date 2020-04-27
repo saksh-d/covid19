@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { WorldComponentComponent } from './world-component/world-component.component';
-import { MapComponentComponent } from './map-component/map-component.component';
+import { MapComponentComponent } from './world-map/map-component.component';
 import { ChartComponentComponent } from './chart-component/chart-component.component';
 import { IndiaComponentComponent } from './india-component/india-component.component';
 import { HelpPageComponent } from './help-page/help-page.component';

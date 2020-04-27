@@ -17,22 +17,21 @@ export class CountryDataButtonComponent implements OnInit {
   constructor(private apiService: WorldCountryApiService) { }
 
   innfo: CountryData[];
-  
+
   // https://stackoverflow.com/questions/45528424/search-bar-in-modal-body-for-auto-search-based-on-text-entered
 
   ngOnInit() {
     this.apiService.getWorldData()
-    .subscribe
-    (
-      data=>
-      {
-        this.innfo = data;
-      }
-    )
+      .subscribe
+      (
+        data => {
+          this.innfo = data;
+        }
+      )
 
-    
+
   }
-  onKey(event:any) {
+  onKey(event: any) {
     var input, filter, table, tr, td, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -46,10 +45,10 @@ export class CountryDataButtonComponent implements OnInit {
         } else {
           tr[i].style.display = "none";
         }
-      }       
+      }
     }
   }
 
-  }
+}
 
 
