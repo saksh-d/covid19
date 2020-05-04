@@ -161,8 +161,11 @@
             </div>
         </div>
     </span>
-    <div class="col-9 m-3 p-2">
-        <app-chart-component></app-chart-component>
+    <div class="col-8 m-2">
+        <app-india-trend></app-india-trend>
+    </div>
+    <div>
+        <app-district-table></app-district-table>
     </div>
 
     <!-- <div class="row">
@@ -190,5 +193,5 @@
 <div class="text-white"> Last updated on {{ info.lastRefreshed | slice : 0:10 }} at
     {{ info.lastRefreshed | slice : 11:16 }} hours </div>
 <div>
-    <app-map-india></app-map-india>
+    <app-chart-component></app-chart-component>
 </div>

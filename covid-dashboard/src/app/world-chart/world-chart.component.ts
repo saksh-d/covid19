@@ -142,7 +142,11 @@ export class WorldChartComponent implements OnInit {
       series: [{
         name: 'Total Confirmed',
         data: this.confirmed,
+      //   dataSorting: {
+      //     enabled: true
+      // },
         color: 'blue'
+        
 
       }, {
         name: 'Recovered',

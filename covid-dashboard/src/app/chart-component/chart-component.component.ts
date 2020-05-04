@@ -178,7 +178,7 @@ this.chartOptions = {
     //plotBackgroundImage:'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/news/2020/01_2020/coronavirus_1/1800x1200_coronavirus_1.jpg?resize=*:350px'
 },
 title: {
-    text: 'India Current Covid status'
+    text: 'India State-wise Data'
 },
 subtitle: {
     text: 'Click and drag to zoom in. Hold down shift key to pan.'
@@ -199,7 +199,7 @@ yAxis: {
 tooltip: {
     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
     pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-        '<td style="padding:0"><b>{point.y} persons</b></td></tr>',
+        '<td style="padding:0"><b>{point.y} patients</b></td></tr>',
     footerFormat: '</table>',
     shared: true,
     useHTML: true
@@ -211,8 +211,17 @@ plotOptions: {
     }
 },
 series: [{
+    name: 'Total Confirmed',
+    // dataSorting: {
+    //     enabled: true,
+    //     matchByName: true
+    // },
+    data: this.totalConfirmedPatients,
+    color:'blue'
+} , {
     name: 'Discharged',
     data: this.dischargedPatients,
+    
     color:'green'
 
 }, {
@@ -220,11 +229,7 @@ series: [{
     data: this.deathPatients,
     color:'red'
 
-}, {
-    name: 'Total Confirmed',
-    data: this.totalConfirmedPatients,
-    color:'blue'
-}  
+}, 
 
 ]
 };

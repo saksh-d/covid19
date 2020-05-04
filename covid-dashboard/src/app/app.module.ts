@@ -29,6 +29,9 @@ import { WorldChartComponent } from './world-chart/world-chart.component';
 import { CountryDataButtonComponent } from './country-data-button/country-data-button.component';
 import { FilterPipe } from './pipe';
 import { MainPipe } from './filter-pipe.module';
+import { IndiaTrendComponent } from './india-trend/india-trend.component';
+import { DistrictTableComponent } from './district-table/district-table.component';
+import { DistrictApiService } from './_services/disctrictData.service';
 
 
 @NgModule({
@@ -45,6 +48,8 @@ import { MainPipe } from './filter-pipe.module';
     HighchartsChartComponent,
     WorldChartComponent,
     CountryDataButtonComponent,
+    IndiaTrendComponent,
+    DistrictTableComponent,
     
     
   ],
@@ -57,7 +62,7 @@ import { MainPipe } from './filter-pipe.module';
     FormsModule,
     MainPipe
   ],
-  providers: [IndiaApiService, IndiaDailyApiService, WorldApiService, WorldCountryApiService],
+  providers: [IndiaApiService, IndiaDailyApiService, WorldApiService, WorldCountryApiService, DistrictApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
