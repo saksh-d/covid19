@@ -161,6 +161,7 @@ this.chartOptions = {
     zoomType: 'x',
     panning: 'true',
     panKey: 'shift',
+    backgroundColor: '#333',
     scrollablePlotArea: {
         minWidth: 5000,
         scrollPositionX: 0
@@ -178,14 +179,30 @@ this.chartOptions = {
     //plotBackgroundImage:'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/news/2020/01_2020/coronavirus_1/1800x1200_coronavirus_1.jpg?resize=*:350px'
 },
 title: {
-    text: 'India State-wise Data'
+    text: 'India State-wise Data',
+    style: {
+        fontFamily: 'monospace',
+        color: "#f00"
+      }
 },
 subtitle: {
-    text: 'Click and drag to zoom in. Hold down shift key to pan.'
+    text: 'Click and drag to zoom in. Hold down shift key to pan.',
+    style: {
+        fontFamily: 'monospace',
+        color: "#FFF"
+      }
+},
+legend: {
+    color: '#FF0000',
+    backgroundColor: '#FCFFC5'
 },
 xAxis: {
     categories: this.locations,
     crosshair: true,
+    labels: {
+        style: {
+        color: "#FFF"
+     }}
     
 },
 yAxis: {
@@ -194,7 +211,11 @@ yAxis: {
       startOnTick: false,
     title: {
         text: 'Count'
-    }
+    },
+    labels: {
+        style: {
+        color: "#FFF"
+     }}
 },
 tooltip: {
     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -202,7 +223,8 @@ tooltip: {
         '<td style="padding:0"><b>{point.y} patients</b></td></tr>',
     footerFormat: '</table>',
     shared: true,
-    useHTML: true
+    useHTML: true,
+    backgroundColor: '#FCFFC5'
 },
 plotOptions: {
     column: {
@@ -217,7 +239,7 @@ series: [{
     //     matchByName: true
     // },
     data: this.totalConfirmedPatients,
-    color:'blue'
+    color:'#6CECDD'
 } , {
     name: 'Discharged',
     data: this.dischargedPatients,

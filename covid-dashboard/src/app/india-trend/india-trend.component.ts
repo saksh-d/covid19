@@ -40,14 +40,15 @@ export class IndiaTrendComponent implements OnInit {
   
   this.chartOptionsy = {
     chart: {
-      type: 'column',
-      height:"600px",
-      width: 1200,
+      type: 'line',
+      height:"500px",
+      width: 1000,
       spacingLeft:1,
       spacingRight:1,
       zoomType: 'x',
       panning: 'true',
       panKey: 'shift',
+      backgroundColor: '#333',
       // scrollablePlotArea: {
       //     minWidth: 5000,
       //     scrollPositionX: 0
@@ -65,14 +66,27 @@ export class IndiaTrendComponent implements OnInit {
       //plotBackgroundImage:'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/news/2020/01_2020/coronavirus_1/1800x1200_coronavirus_1.jpg?resize=*:350px'
   },
   title: {
-      text: 'Total cases (Time series)'
+      text: 'Total cases (Time series)',
+      style: {
+        fontFamily: 'monospace',
+        color: "#f00"
+      }
   },
   subtitle: {
-      text: 'Click and drag to zoom in. Hold down shift key to pan.'
+      text: 'Click and drag to zoom in. Hold down shift key to pan.',
+      style: {
+        color: '#FFF',}
   },
+  legend: {
+    color: '#FF0000',
+    backgroundColor: '#FCFFC5'
+},
   xAxis: {
       categories: this.date,
       crosshair: true,
+      labels: {
+        style: {
+        color: '#FFF',}}
       
   },
   yAxis: {
@@ -81,7 +95,11 @@ export class IndiaTrendComponent implements OnInit {
         startOnTick: false,
       title: {
           text: 'Count'
-      }
+      },
+      labels: {
+        style: {
+        color: '#FFF',}}
+      
   },
   tooltip: {
       headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -89,7 +107,8 @@ export class IndiaTrendComponent implements OnInit {
           '<td style="padding:0"><b>{point.y} patients</b></td></tr>',
       footerFormat: '</table>',
       shared: true,
-      useHTML: true
+      useHTML: true,
+      backgroundColor: '#FCFFC5'
   },
   plotOptions: {
       column: {
@@ -104,7 +123,7 @@ export class IndiaTrendComponent implements OnInit {
       //     matchByName: true
       // },
       data: this.cases,
-      color:'blue'
+      color:'#6CECDD'
   } , 
   
   ]

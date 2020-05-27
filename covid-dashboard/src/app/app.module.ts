@@ -32,6 +32,8 @@ import { MainPipe } from './filter-pipe.module';
 import { IndiaTrendComponent } from './india-trend/india-trend.component';
 import { DistrictTableComponent } from './district-table/district-table.component';
 import { DistrictApiService } from './_services/disctrictData.service';
+import { WorldTrendComponent } from './world-trend/world-trend.component';
+import { WorldTrendApiService } from './_services/worldTrend.service';
 
 
 @NgModule({
@@ -50,6 +52,7 @@ import { DistrictApiService } from './_services/disctrictData.service';
     CountryDataButtonComponent,
     IndiaTrendComponent,
     DistrictTableComponent,
+    WorldTrendComponent,
     
     
   ],
@@ -62,7 +65,7 @@ import { DistrictApiService } from './_services/disctrictData.service';
     FormsModule,
     MainPipe
   ],
-  providers: [IndiaApiService, IndiaDailyApiService, WorldApiService, WorldCountryApiService, DistrictApiService],
+  providers: [IndiaApiService, IndiaDailyApiService, WorldApiService, WorldCountryApiService, DistrictApiService, WorldTrendApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

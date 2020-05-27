@@ -1,56 +1,51 @@
 import { Component, OnInit } from '@angular/core';
+import { WorldTrendApiService } from '../_services/worldTrend.service';
 import * as Highcharts from 'highcharts';
 
-import { WorldCountryApiService } from '../_services/worldCountry.service';
-
 @Component({
-  selector: 'app-world-chart',
-  templateUrl: './world-chart.component.html',
-  styleUrls: ['./world-chart.component.css']
+  selector: 'app-world-trend',
+  templateUrl: './world-trend.component.html',
+  styleUrls: ['./world-trend.component.css']
 })
-export class WorldChartComponent implements OnInit {
+export class WorldTrendComponent implements OnInit {
 
-  latWorldCountryData;
-  countryCode = [];
-  name = [];
-  highchartsx = Highcharts;
+  latWorldTrendData;
+  highchartsz = Highcharts;
   series = [];
-  chartOptionsx;
+  chartOptionsz;
+  date = [];
+  cases = [];
   deaths = [];
-  confirmed = [];
   recovered = [];
 
-  constructor(private apiService: WorldCountryApiService) { }
+  constructor(private apiService: WorldTrendApiService) { }
 
   ngOnInit() {
-    this.plotGraphWorldCountryData();
+    this.plotWorldTrend();
   }
 
-  plotGraphWorldCountryData() {
-    this.apiService.getWorldData().subscribe((resx: any) => {
-      this.latWorldCountryData = resx
-      this.showGraph(this.latWorldCountryData);
+  plotWorldTrend(){
+    this.apiService.getWorldTrend().subscribe((resz: any) => {
+      this.latWorldTrendData = resz
+      this.showGraph(this.latWorldTrendData);
     });
   }
 
-  private showGraph(worldData) {
-
-    let countryData = worldData['data']
-    for (let index in countryData) {
-      this.name.push(countryData[index].name);
-      this.countryCode.push(countryData[index].code);
-      this.deaths.push(countryData[index].latest_data.deaths);
-      this.confirmed.push(countryData[index].latest_data.confirmed);
-      this.recovered.push(countryData[index].latest_data.recovered);
-
+  private showGraph(worldTrend){
+    let trend = worldTrend['data']
+    for (let index in trend) {
+      this.date.push(trend[index].Date);
+      this.cases.push(trend[index].Confirmed);
+      this.deaths.push(trend[index].Deaths);
+      this.recovered.push(trend[index].Recovered);
     }
-    // console.log(this.deaths)
-    console.log(this.deaths)
+
+    console.log(this.date)
 
 
-    this.chartOptionsx = {
+    this.chartOptionsz = {
       chart: {
-        type: 'column',
+        type: 'line',
         height:"600px",
         zoomType: 'x',
         panning: 'true',
@@ -80,7 +75,7 @@ export class WorldChartComponent implements OnInit {
     //     chart.xAxis[0].setExtremes(0,0);
     // },
       title: {
-        text: 'Cases in World (Country-wise)',
+        text: 'Cases in World (Time series)',
         style: {
           fontFamily: 'monospace',
           color: "#f00"
@@ -96,7 +91,7 @@ export class WorldChartComponent implements OnInit {
           backgroundColor: '#FCFFC5'
       },
       xAxis: {
-        categories: this.name,
+        categories: this.date,
         crosshair: true,
         labels: {
           overflow: 'justify',
@@ -160,7 +155,7 @@ export class WorldChartComponent implements OnInit {
       },
       series: [{
         name: 'Total Confirmed',
-        data: this.confirmed,
+        data: this.cases,
       //   dataSorting: {
       //     enabled: true
       // },

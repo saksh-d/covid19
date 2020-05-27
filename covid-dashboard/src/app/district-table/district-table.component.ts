@@ -24,11 +24,11 @@ export class DistrictTableComponent implements OnInit {
 
   }
 
-  fetchDistrictData(){
-    this.obj = {LocationName:'abc', Stock:'cdf'};
-    this.godowns = [];
-    this.godowns.push(this.obj);
-  }
+  // fetchDistrictData(){
+  //   this.obj = {LocationName:'abc', Stock:'cdf'};
+  //   this.godowns = [];
+  //   this.godowns.push(this.obj);
+  // }
   }
 
   // onKey(event: any) {
@@ -49,4 +49,4 @@ export class DistrictTableComponent implements OnInit {
   //   }
   // }
 
-}
+

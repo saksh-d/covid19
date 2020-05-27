@@ -123,6 +123,56 @@
             </div>
 
         </div>
+        <!-- <div class="ml-5 mb-4 mt-4 mr-0" style="width: 15rem;"><button type="button"
+                class="btn btn-light font-white btn-outline-dark ml-2 mb-4 mt-4 mr-0" data-toggle="modal"
+                data-target="#exampleModalLong">
+                View State-wise Data
+            </button>
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">State-wise Data</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card bg-light" style="width:100%">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th class="text-theme bg-light">State</th>
+                                        <th class="text-warning font-weight-bold">Confirmed</th>
+                                        <th class="text-success font-weight-bold">Recovered</th>
+                                        <th class="text-danger font-weight-bold">Deaths</th>
+                                    </tr>
+                                    <tr *ngFor="let region of info.data[info.data.length-1].regional">
+                                        <td class="text-info font-weight-bold">{{region.loc}}</td>
+                                        <td class="text-warning font-weight-bold">{{region.totalConfirmed}}</td>
+                                        <td class="text-success font-weight-bold">{{region.discharged}}</td>
+                                        <td class="text-danger font-weight-bold">{{region.deaths}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> -->
+    </span>
+    <div class="col-7 m-2">
+        <app-india-trend></app-india-trend>
+    </div>
+    <div>
+        <span class="border border-dark">
+        <!-- <app-district-table></app-district-table> -->
+        <div class="col-2">
+            
+               
+                       <a href="https://static.mygov.in/rest/s3fs-public/mygov_158831498053877021.pdf" class="button">Go to Google</a>
+                    </div>
+             
         <div class="ml-5 mb-4 mt-4 mr-0" style="width: 15rem;"><button type="button"
                 class="btn btn-light font-white btn-outline-dark ml-2 mb-4 mt-4 mr-0" data-toggle="modal"
                 data-target="#exampleModalLong">
@@ -161,37 +211,11 @@
             </div>
         </div>
     </span>
-    <div class="col-8 m-2">
-        <app-india-trend></app-india-trend>
+  
+        
     </div>
+    <div class="text-white"> Last updated on {{ info.lastRefreshed | slice : 0:10 }} at
+        {{ info.lastRefreshed | slice : 11:16 }} hours </div>
     <div>
-        <app-district-table></app-district-table>
-    </div>
-
-    <!-- <div class="row">
-
-    <div class="col-12 m-0 p-0">
         <app-chart-component></app-chart-component>
     </div>
-</div> -->
-
-
-    <!-- <div class="col-3">
-
-<div class="card mb-4 mt-4 mr-4" style="width: 15rem; height: 40rem;">
-    <div class="card p-1">
-        <table border="3">
-            <tr>
-                <td align="center">Country</td>
-                <td align="center">Cases</td>
-            </tr>
-        </table>
-    </div>
-</div>
-</div> -->
-</div>
-<div class="text-white"> Last updated on {{ info.lastRefreshed | slice : 0:10 }} at
-    {{ info.lastRefreshed | slice : 11:16 }} hours </div>
-<div>
-    <app-chart-component></app-chart-component>
-</div>
