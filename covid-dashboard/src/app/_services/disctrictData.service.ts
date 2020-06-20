@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
         constructor(private httpclient: HttpClient) {}
 
         getDistrictData(): Observable<any>{
-            return this.httpclient.get("https://api.covid19india.org/v2/state_district_wise.json")
+            return this.httpclient.get("https://api.covidindiatracker.com/state_data.json")
         }
 
     }

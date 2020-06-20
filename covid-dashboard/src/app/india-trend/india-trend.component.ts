@@ -42,7 +42,7 @@ export class IndiaTrendComponent implements OnInit {
     chart: {
       type: 'line',
       height:"500px",
-      width: 1000,
+      width: 1100,
       spacingLeft:1,
       spacingRight:1,
       zoomType: 'x',

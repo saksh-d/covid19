@@ -24,12 +24,16 @@ export class DistrictTableComponent implements OnInit {
 
   }
 
+
+  
   // fetchDistrictData(){
   //   this.obj = {LocationName:'abc', Stock:'cdf'};
   //   this.godowns = [];
   //   this.godowns.push(this.obj);
   // }
   }
+ 
+// console.log(this.districts.state);
 
   // onKey(event: any) {
   //   var input1, filter1, table1, tr, td, i;

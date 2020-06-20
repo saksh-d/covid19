@@ -179,7 +179,7 @@ this.chartOptions = {
     //plotBackgroundImage:'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/news/2020/01_2020/coronavirus_1/1800x1200_coronavirus_1.jpg?resize=*:350px'
 },
 title: {
-    text: 'India State-wise Data',
+    text: 'India State-wise Graph',
     style: {
         fontFamily: 'monospace',
         color: "#f00"

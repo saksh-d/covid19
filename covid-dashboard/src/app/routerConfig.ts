@@ -6,14 +6,14 @@ import { HelpPageComponent } from './help-page/help-page.component';
 export const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/world',
+        redirectTo: '/landing',
         pathMatch: 'full',
     },
-    { path: 'world',
+    { path: 'landing/world',
     component: WorldComponentComponent},
-    { path: 'india',
+    { path: 'landing/india',
     component: IndiaComponentComponent},
-    { path: 'help',
+    { path: 'landing',
     component: HelpPageComponent}
 ];
 

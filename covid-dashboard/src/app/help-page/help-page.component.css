@@ -1,0 +1,10 @@
+:host {
+    display: block;
+    background-color: #333;
+    overflow: hidden; /* Hide scrollbars */
+      }
+
+.center {
+        margin: auto;
+      
+      }
