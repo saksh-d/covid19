@@ -1,6 +1,6 @@
-.
-├── README.md
-└── covid-dashboard/
+
+##Project Structure
+
     ├── README.md
     ├── angular.json
     ├── package.json
